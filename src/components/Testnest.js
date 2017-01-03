@@ -70,7 +70,7 @@ class GrandP extends React.Component {
 		this.passinfo = this.passinfo.bind(this); 	//不需要绑定参数可以不在构造函数中绑定,用es6的写法
 		this.ajaxtest = this.ajaxtest.bind(this);	//同上
 	}
-	//不需要传递参数,
+	//不需要传递参数,可以直接使用es6绑定
 	counter() {
 		console.log('祖父组件方法');
       	this.setState({
