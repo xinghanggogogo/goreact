@@ -1,6 +1,8 @@
 
 'use strict';
 
+var webpack = require('webpack');
+var ProvidePlugin = require('webpack/lib/ProvidePlugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");  //css单独打包
 
 module.exports = {
@@ -35,6 +37,9 @@ module.exports = {
 
     plugins: [
         new ExtractTextPlugin('main.css'),
+        new webpack.ProvidePlugin({
+          'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+        })
     ]
 
 }

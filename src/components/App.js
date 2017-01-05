@@ -1,5 +1,5 @@
 'use strict';
-
+//包含了路由信息
 import React from 'react';
 import ReactDom from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';

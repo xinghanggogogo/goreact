@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
+import LIB from '../lib/utils.js'
 import '../styles/details.scss';
-import $ from 'jquery'
 
 class Details extends React.Component {
 	constructor(props) {
@@ -12,15 +12,40 @@ class Details extends React.Component {
 	//注意加了params参数
 	componentWillMount() {
 		const {id} = this.props.params
-		$.ajax({
-			url: '',
-			type: 'GET',
-			data: {id: id},
-			success: data => {
-				this.setState({
-					info: '来自ajax'+' '+id
-				})
-			}
+
+		// ajax 后端解决跨域(cors)
+		// $.ajax({
+		// 	url: 'http://101.254.157.124:8030/test',
+		// 	type: 'GET',
+		// 	data: {id: id},
+		// 	success: data => {
+		// 		this.setState({
+		// 			info: data.anchors[4][5]
+		// 		})
+		// 	}
+		// })
+
+		// ajax jsonp解决跨域, 以下会生成'jsonp='kehu...'传递给后端'
+		// $.ajax({
+		// 	url: 'http://101.254.157.124:8030/test',
+		// 	type: 'GET',
+		// 	data: {id: id},
+		// 	dataType: "jsonp",
+		// 	// jsonp: "jsonp", 默认值callback
+		// 	// jsonpCallback: "kehuduandingyihanshu",
+		// 	success: data => {
+		// 		this.setState({
+		// 			info: data.anchors[4][5]
+		// 		})
+		// 	}
+		// })
+
+		//封装实现
+		const TEST_URL = 'http://101.254.157.124:8030/test'
+		LIB.fetch(TEST_URL, 'GET', {id:id}, (data)=>{
+			this.setState({
+				info: data.anchors[4][5]+id
+			})
 		})
 	}
 	render() {
