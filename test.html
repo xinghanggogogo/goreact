@@ -1,31 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function(){
-            $.ajax({
-               type: "get",
-               async: false,
-               url: "http://gc.ditu.aliyun.com/geocoding?a=苏州市",
-               dataType: "jsonp",
-               jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
-               jsonpCallback: "flightHandler",//自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
-               success: function(data){
-                   console.log(data);
-               },
-               error: function(){
-                   alert('fail');
-               }
-           });
-       });
-   </script>
-</head>
-<body>
+<meta charset="utf-8" />
+<title>闭包演示</title>
+<style type="text/css">
+    p {background:gold;}
+</style>
+<script type="text/javascript">
+// function init() {
+//     var pAry = document.getElementsByTagName("p");
+//     for(var i = 0; i<pAry.length; i++) {
+//         (function(e) {
+//             pAry[e].onclick = function() {
+//                 alert(e)
+//             }
+//         })(i);
+//     }
+// }
 
+// function init() {
+//     var pAry = document.getElementsByTagName("p");
+//     for( var i=0; i<pAry.length; i++ ) {
+//          (pAry[i].onclick = function() {
+//              alert(i);
+//         })(i)
+//     }
+// }
+
+function init() {
+    var pAry = document.getElementsByTagName("p");
+    for( var i=0; i<pAry.length; i++) {
+        pAry[i].onclick = function() {
+            alert(i);
+        }
+    }
+}
+</script>
+</head>
+<body onload="init();">
+<p>产品 0</p>
+<p>产品 1</p>
+<p>产品 2</p>
+<p>产品 3</p>
+<p>产品 4</p>
 </body>
 </html>
