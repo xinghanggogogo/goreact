@@ -6,7 +6,7 @@ class Details extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			info: ''
+			info: 'test-git'
 		}
 	}
 	//注意加了params参数
