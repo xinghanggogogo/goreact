@@ -12,6 +12,7 @@ class Details extends React.Component {
 	//注意加了params参数
 	componentWillMount() {
 		const {id} = this.props.params
+		
 		// ajax 后端解决跨域(cors)
 		// $.ajax({
 		// 	url: 'http://101.254.157.124:8030/test',
